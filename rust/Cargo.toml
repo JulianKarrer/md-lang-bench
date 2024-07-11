@@ -1,0 +1,19 @@
+[package]
+name = "mdbench"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal Molecular Dynamics Benchmark"
+
+[profile.release]
+# prioritize speed over binary size
+lto = "fat"
+
+# don't unwind the stack when panicking
+panic = "abort"
+
+# optimize as much as possible, equivcalent to -O3
+opt-level = 3
+
+[dependencies]
+# vectors with SIMD support
+nalgebra = "0.33.0"
